@@ -34,7 +34,7 @@ services:
   celery:
     build: .
     container_name: celery
-    command: celery -A celecron worker --loglevel=INFO
+    command: celery -A config worker --loglevel=INFO
     volumes:
       - .:/code
     env_file:
@@ -45,7 +45,7 @@ services:
   celery-beat:
     build: .
     container_name: celery_beat
-    command: celery -A celecron beat --loglevel=INFO --scheduler django_celery_beat.schedulers:DatabaseScheduler
+    command: celery -A config beat --loglevel=INFO --scheduler django_celery_beat.schedulers:DatabaseScheduler
     volumes:
       - .:/code
     env_file:
