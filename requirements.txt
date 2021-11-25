@@ -1,0 +1,26 @@
+click==7.1.2
+
+pytz
+requests
+python-dotenv
+
+# Django
+django
+django-timezone-field 
+django-cors-headers
+whitenoise
+
+# Django 3.0 async requirements
+gunicorn
+uvicorn
+uvloop
+httptools
+
+# Databases
+psycopg2-binary
+dj-database-url
+
+# Distributed tasks
+celery==5.1.0
+redis
+django-celery-beat==2.2.0
