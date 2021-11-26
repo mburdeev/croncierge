@@ -24,3 +24,6 @@ dj-database-url
 celery==5.1.0
 redis
 django-celery-beat==2.2.0
+
+# Tests
+pytest
