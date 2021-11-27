@@ -6,7 +6,7 @@ def log_cmd(cmd_response):
     logging.info(f"Command response:\n{cmd_response}")
 
 def test_cmd_stdout():
-    cmd = "python3 tests/test_croncierge/debug_cmd.py"
+    cmd = "python3 /home/maxim/projects/celecron/tests/test_croncierge/debug_cmd.py"
     log_cmd(cmd_services.run_cmd(cmd))
 
 

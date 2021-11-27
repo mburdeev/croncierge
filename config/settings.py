@@ -56,7 +56,7 @@ INSTALLED_APPS = [
     'django_celery_beat',
 
     # local apps
-    # TODO ''
+    'croncierge'
 ]
 
 MIDDLEWARE = [
