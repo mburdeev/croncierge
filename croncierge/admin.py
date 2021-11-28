@@ -9,6 +9,9 @@ from croncierge.models import (
 class TaskAdmin(admin.ModelAdmin):
     list_display = ['command']
 
+    # def save_model(self, request, obj, form, change):
+    #     obj.save(form=form)
+
 
 @admin.register(Log)
 class LogAdmin(admin.ModelAdmin):

@@ -1,23 +1,29 @@
 version: "3.8"
 
 services:
-  db:
-    image: postgres:12
-    container_name: postgres_db
-    restart: always
-    volumes:
-      - postgres_data:/var/lib/postgresql/data/
-      - ./sql:/sql/
-    environment:
-      - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=postgres
-    env_file:
-      - ./.env
-    ports:
-      - 5433:5432
+  # db:
+  #   image: postgres:12
+  #   container_name: postgres_db
+  #   restart: always
+  #   volumes:
+  #     - postgres_data:/var/lib/postgresql/data/
+  #     - ./sql:/sql/
+  #   environment:
+  #     - POSTGRES_USER=postgres
+  #     - POSTGRES_PASSWORD=postgres
+  #   env_file:
+  #     - ./.env
+  #   ports:
+  #     - 5433:5432
   redis:
     image: redis:alpine
     container_name: redis
+    command: --port 7936
+    ports:
+      - "7936:7936"
+    expose:
+      - "7936"
+
   web:
     build: .
     container_name: django
@@ -29,19 +35,19 @@ services:
     env_file:
       - ./.env
     depends_on:
-      - db
+      # - db
       - redis
-  celery:
-    build: .
-    container_name: celery
-    command: celery -A config worker --loglevel=INFO
-    volumes:
-      - .:/code
-    env_file:
-      - ./.env
-    depends_on:
-      - redis
-      - web
+  # celery:
+  #   build: .
+  #   container_name: celery
+  #   command: celery -A config worker --loglevel=INFO
+  #   volumes:
+  #     - .:/code
+  #   env_file:
+  #     - ./.env
+  #   depends_on:
+  #     - redis
+  #     - web
   celery-beat:
     build: .
     container_name: celery_beat

@@ -1,2 +1,3 @@
-# Celecron
-Проект для объединение простоты и надежности CRON для запуска задач и удобства админ панели Django
+# Croncierge
+
+Reliable as CRON, user-friendly as django admin panel
